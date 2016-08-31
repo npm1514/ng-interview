@@ -1,4 +1,17 @@
 <h2>Students</h2>
+<input type="text" ng-model = "filterer.FirstName" placeholder="Filter by name">
 <ul>
-	<li>Here are your students...</li>
+	<li ng-repeat="student in students | filter: filterer">
+		<h2 ng-click="showMoreData=true">{{student.FirstName}} <span ng-show="showMoreData">{{student.LastName}}</span></h2>
+		<div ng-show="showMoreData">
+			<ul>
+				<li>Favorite Food - {{student.FavoriteFood}}</li>
+				<li>Favorite Color - {{student.FavoriteColor}}</li>
+				<li>Favorite Movie - {{student.FavoriteMovie}}</li>
+				<li>Id Number - {{student.Id}}</li>
+			</ul>
+			<br>
+			<button type="button" ng-click="showMoreData=false">Hide Data</button>
+		</div>
+	</li>
 </ul>
